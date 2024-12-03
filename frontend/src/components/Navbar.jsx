@@ -19,6 +19,7 @@ const Navbar = () => {
     setShowSearchIcon,
     iplTeam,
     setIplTeam,
+    setIsModalOpen2,
   } = useContext(ShopContext);
 
   const location = useLocation();
@@ -51,14 +52,13 @@ const Navbar = () => {
     setLoggedIn(false);
     setToken("");
     localStorage.removeItem("token");
-    localStorage.removeItem("iplTeam");
     setCartItems({});
     navigate("/login");
   };
 
   return (
     <div
-      className={`border px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-1 fixed top-0 left-0 w-full z-50 transition-all ${
+      className={`${iplTeam} nav border px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-1 fixed top-0 left-0 w-full z-50 transition-all ${
         scrolled ? "backdrop-blur-md bg-white/50 shadow-md" : "bg-white"
       }`}
     >
@@ -72,12 +72,11 @@ const Navbar = () => {
             <img
               src={
                 {
-                  mi: assets.mi_logo,
-                  csk: assets.csk_logo,
-                  rcb: assets.rcb_logo,
-                  dc: assets.dc_logo,
-                  kkr: assets.kkr_logo,
-                  gt: assets.gt_logo,
+                  CSK: assets.csk_logo,
+                  RCB: assets.rcb_logo,
+                  DC: assets.dc_logo,
+                  KKR: assets.kkr_logo,
+                  GT: assets.gt_logo,
                 }[iplTeam]
               }
               className="h-[50px] scale-[1.2] ml-5"
@@ -87,17 +86,17 @@ const Navbar = () => {
           )}
         </div>
 
-        <ul className="hidden sm:flex gap-5 text-sm text-gray-700 -translate-x-[50%]">
+        <ul className="hidden sm:flex gap-5 text-sm text-black -translate-x-[50%]">
           <NavLink to="/" className="flex flex-col items-center gap-1">
             <p>HOME</p>
-            <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+            <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
           </NavLink>
           <NavLink
             to="/collection"
             className="flex flex-col items-center gap-1"
           >
             <p>COLLECTION</p>
-            <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+            <hr className="w-2/4 border-none h-[1.5px] bg-black hidden" />
           </NavLink>
         </ul>
 
@@ -120,7 +119,7 @@ const Navbar = () => {
             {loggedIn && (
               <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
                 <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-                  <p className="cursor-pointer hover:text-black">Profile</p>
+                    <p className="cursor-pointer hover:text-black" onClick={()=>setIsModalOpen2(true)}>Change Team</p>
                   <Link to={"/orders"}>
                     <p className="cursor-pointer hover:text-black">Orders</p>
                   </Link>

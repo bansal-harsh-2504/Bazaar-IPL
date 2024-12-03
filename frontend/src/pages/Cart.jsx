@@ -4,9 +4,10 @@ import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import CartTotal from "../components/CartTotal";
 import toast from "react-hot-toast";
+import ChangeTeam from "./ChangeTeam";
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate } =
+  const { products, currency, cartItems, updateQuantity, navigate, isModalOpen2, handleCloseModal2 } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
@@ -105,6 +106,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      <ChangeTeam isOpen={isModalOpen2} onClose={handleCloseModal2} />
     </div>
   );
 };

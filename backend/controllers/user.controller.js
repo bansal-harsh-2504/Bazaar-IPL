@@ -60,7 +60,7 @@ export const registerUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const teams = ["rcb", "dc", "gt", "csk", "kkr", "mi"];
+    const teams = ["RCB", "GT", "CSK", "KKR"];
 
     const newUser = new User({
       name,

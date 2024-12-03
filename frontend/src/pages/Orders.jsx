@@ -3,9 +3,11 @@ import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
 import axios from "axios";
 import toast from "react-hot-toast";
+import ChangeTeam from "./ChangeTeam";
 
 const Orders = () => {
-  const { currency, token, backendUrl } = useContext(ShopContext);
+  const { currency, token, backendUrl, isModalOpen2, handleCloseModal2 } =
+    useContext(ShopContext);
 
   const [orderData, setOrderData] = useState([]);
 
@@ -96,6 +98,7 @@ const Orders = () => {
           <p className="text-gray-700 text-lg font-medium">No orders found</p>
         </div>
       )}
+      <ChangeTeam isOpen={isModalOpen2} onClose={handleCloseModal2} />
     </div>
   );
 };

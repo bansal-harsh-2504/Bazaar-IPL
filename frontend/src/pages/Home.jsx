@@ -5,10 +5,17 @@ import OurPolicy from "../components/OurPolicy";
 import { useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Welcome from "../components/Welcome";
+import ChangeTeam from "./ChangeTeam";
 
 const Home = () => {
-  const { showWelcomeMessage, setShowWelcomeMessage, iplTeam, userName } =
-    useContext(ShopContext);
+  const {
+    showWelcomeMessage,
+    setShowWelcomeMessage,
+    iplTeam,
+    userName,
+    isModalOpen2,
+    handleCloseModal2,
+  } = useContext(ShopContext);
 
   const [isModalOpen, setIsModalOpen] = useState(true);
 
@@ -27,6 +34,7 @@ const Home = () => {
           userName={userName}
         />
       )}
+      <ChangeTeam isOpen={isModalOpen2} onClose={handleCloseModal2} />
       <Hero />
       <LatestCollection />
       <BestSeller />

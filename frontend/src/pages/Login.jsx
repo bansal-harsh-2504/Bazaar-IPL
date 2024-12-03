@@ -39,8 +39,6 @@ const Login = () => {
         setIplTeam(res.data.iplTeam);
         setShowWelcomeMessage(true);
         setUserName(res.data.userName);
-        localStorage.setItem("iplTeam", res.data.iplTeam);
-
         navigate("/");
       } else {
         toast.error(res.data.message);

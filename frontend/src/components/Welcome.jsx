@@ -17,7 +17,7 @@ const Welcome = ({ isOpen, onClose, iplTeam, userName }) => {
         </div>
         <p className="text-lg text-gray-700">
           You&apos;ve been assigned to Team{" "}
-          <span className="font-bold">{iplTeam.toUpperCase()}</span>. Score big with your next purchase!
+          <span className="font-bold">{iplTeam}</span>. Score big with your next purchase!
         </p>
       </div>
     </div>

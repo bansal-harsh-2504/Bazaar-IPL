@@ -21,6 +21,7 @@ const ShopContextProvider = (props) => {
   const [showFooter, setShowFooter] = useState(true);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
   const [userName, setUserName] = useState("");
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
 
   const addToCart = async (itemId, size) => {
     if (!size) {
@@ -148,6 +149,29 @@ const ShopContextProvider = (props) => {
       console.log("Error getting Products data : ", error.message);
     }
   };
+  const getUserTeam = async () => {
+    try {
+      const res = await axios.post(
+        backendUrl + "/api/team/get",
+        {},
+        {
+          headers: { token },
+        }
+      );
+      if (res.data.success) {
+        setIplTeam(res.data.iplTeam);
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+      console.log("Error getting User team : ", error.message);
+    }
+  };
+
+  const handleCloseModal2 = () => {
+    setIsModalOpen2(false);
+  };
 
   useEffect(() => {
     if (!token && localStorage.getItem("token")) {
@@ -161,7 +185,7 @@ const ShopContextProvider = (props) => {
     getProductsData();
     if (token) {
       getCartCount();
-      setIplTeam(localStorage.getItem("iplTeam"));
+      getUserTeam();
     }
   }, [token]);
 
@@ -195,6 +219,9 @@ const ShopContextProvider = (props) => {
     setShowWelcomeMessage,
     userName,
     setUserName,
+    isModalOpen2,
+    setIsModalOpen2,
+    handleCloseModal2,
   };
 
   return (

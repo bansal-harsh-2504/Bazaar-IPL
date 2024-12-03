@@ -16,3 +16,19 @@ export const changeTeam = async (req, res) => {
     res.json({ success: false, message: "Internal Server Error" });
   }
 };
+
+export const getTeam = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const user = await User.findById(userId);
+
+    res.json({
+      success: true,
+      message: "Fetched team successfully",
+      iplTeam: user.iplTeam,
+    });
+  } catch (error) {
+    console.log("Error in Get Team Conltroller : ", error.message);
+    res.json({ success: false, message: "Internal Server Error" });
+  }
+};

@@ -14,7 +14,7 @@ const Popup = ({ isOpen, onClose, method }) => {
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 text-4xl"
           >
-            X
+            &times;
           </button>
         </div>
         <p className="mb-4">

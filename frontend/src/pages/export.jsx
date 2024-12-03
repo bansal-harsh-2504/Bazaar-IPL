@@ -5,6 +5,7 @@ import Login from "./Login";
 import Orders from "./Orders";
 import PlaceOrder from "./PlaceOrder";
 import Product from "./Product";
+import ChangeTeam from "./ChangeTeam";
 
 export {
   Home,
@@ -14,4 +15,5 @@ export {
   Orders,
   PlaceOrder,
   Product,
+  ChangeTeam,
 };

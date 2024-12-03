@@ -3,9 +3,11 @@ import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
+import ChangeTeam from "./ChangeTeam";
 
 const Collection = () => {
-  const { products, search, showSearch } = useContext(ShopContext);
+  const { products, search, showSearch, isModalOpen2, handleCloseModal2 } =
+    useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(true);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -200,6 +202,7 @@ const Collection = () => {
           ))}
         </div>
       </div>
+      <ChangeTeam isOpen={isModalOpen2} onClose={handleCloseModal2} />
     </div>
   );
 };

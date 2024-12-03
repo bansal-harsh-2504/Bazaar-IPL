@@ -1,9 +1,7 @@
 import logo from "./bz_logo.png";
 import csk_logo from "./csk_logo.png";
-import dc_logo from "./dc_logo.png";
 import gt_logo from "./gt_logo.png";
 import kkr_logo from "./kkr_logo.png";
-import mi_logo from "./mi_logo.png";
 import rcb_logo from "./rcb_logo.png";
 import hero_img from "./hero_img.jpg";
 import cart_icon from "./cart_icon.png";
@@ -38,10 +36,8 @@ export const assets = {
   cross_icon,
   logo,
   csk_logo,
-  dc_logo,
   gt_logo,
   kkr_logo,
-  mi_logo,
   rcb_logo,
   ipl_logo,
 };

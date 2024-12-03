@@ -28,3 +28,51 @@ a.active hr {
     color: white;
   }
 }
+
+.RCB.nav {
+  background: rgb(56, 85, 244);
+  background: linear-gradient(
+    294deg,
+    rgba(56, 85, 244, 1) 8%,
+    rgba(253, 45, 45, 1) 91%
+  );
+}
+.RCB.card {
+  border-color: rgb(220 38 38);
+}
+
+.CSK.nav {
+  background: rgb(226, 235, 22);
+  background: linear-gradient(
+    321deg,
+    rgba(226, 235, 22, 1) 10%,
+    rgba(189, 184, 20, 1) 94%
+  );
+}
+.CSK.card {
+  border-color: rgb(220, 208, 38);
+}
+
+.KKR.nav {
+  background: rgb(147, 29, 203);
+  background: linear-gradient(
+    321deg,
+    rgba(147, 29, 203, 1) 10%,
+    rgba(146, 61, 248, 1) 94%
+  );
+}
+.KKR.card {
+  border-color: rgb(123, 22, 218);
+}
+
+.GT.nav {
+  background: rgb(38, 26, 201);
+  background: linear-gradient(
+    321deg,
+    rgba(38, 26, 201, 0.9551470246301645) 10%,
+    rgba(23, 43, 155, 0.9635503859747023) 94%
+  );
+}
+.GT.card {
+  border-color: rgb(26, 9, 121);
+}

@@ -2,10 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
+import ChangeTeam from "./ChangeTeam";
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency, addToCart } =
+  const { products, currency, addToCart, isModalOpen2, handleCloseModal2 } =
     useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
@@ -83,7 +84,9 @@ const Product = () => {
           </p>
           <p className="">{productData.description}</p>
           <div className="flex flex-col gap-4 my-8">
-            <p className="text-gray-400">Size: <span className="text-black">{size}</span></p>
+            <p className="text-gray-400">
+              Size: <span className="text-black">{size}</span>
+            </p>
             <div className="flex gap-2">
               {productData?.sizes?.map((item, idx) => (
                 <button
@@ -112,9 +115,12 @@ const Product = () => {
           </div>
         </div>
       </div>
+      <ChangeTeam isOpen={isModalOpen2} onClose={handleCloseModal2} />
     </div>
   ) : (
-    <div className="opacity-0"></div>
+    <div className="opacity-0">
+      <ChangeTeam isOpen={isModalOpen2} onClose={handleCloseModal2} />
+    </div>
   );
 };
 
