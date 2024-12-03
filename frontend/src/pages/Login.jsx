@@ -69,15 +69,15 @@ const Login = () => {
   }, [token]);
 
   return (
-    <div className="flex justify-center items-center h-[80vh]">
-      <div className="border w-[45%] p-10 shadow-xl rounded-xl">
+    <div className="flex justify-center items-center h-[80vh] p-4 sm:p-6">
+      <div className="border w-full max-w-md p-6 sm:p-10 shadow-xl rounded-xl bg-white">
         <form
           onSubmit={onSubmitHandler}
-          className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto gap-4 text-gray-800r"
+          className="flex flex-col items-center w-full gap-4 text-gray-800"
         >
-          <div className="inline-flex items-center gap-2 mb-2 mt-10">
+          <div className="inline-flex items-center gap-2 mb-2 mt-4">
             <p className="prata-regular text-3xl">{currentState}</p>
-            <hr />
+            <hr className="border-gray-300 flex-grow" />
           </div>
           {currentState === "Login" ? (
             ""
@@ -86,7 +86,7 @@ const Login = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-800"
+              className="w-full px-3 py-2 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-gray-400"
               placeholder="Name"
               required
             />
@@ -95,7 +95,7 @@ const Login = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-800"
+            className="w-full px-3 py-2 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-gray-400"
             placeholder="Email"
             required
           />
@@ -103,19 +103,21 @@ const Login = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-800"
+            className="w-full px-3 py-2 border border-gray-800 rounded-md focus:outline-none focus:ring focus:ring-gray-400"
             placeholder="Password"
             required
           />
           <div className="w-full flex justify-between text-sm mt-[-8px]">
             {currentState === "Login" ? (
-              <p className="cursor-pointer">Forgot your password?</p>
+              <p className="cursor-pointer text-gray-500 hover:text-gray-700">
+                Forgot your password?
+              </p>
             ) : (
               <p>Already have an account?</p>
             )}
             {currentState === "Login" ? (
               <p
-                className="cursor-pointer"
+                className="cursor-pointer text-blue-600 hover:underline"
                 onClick={() => {
                   resetFields();
                   setCurrentState("Sign Up");
@@ -125,7 +127,7 @@ const Login = () => {
               </p>
             ) : (
               <p
-                className="cursor-pointer"
+                className="cursor-pointer text-blue-600 hover:underline"
                 onClick={() => {
                   resetFields();
                   setCurrentState("Login");
@@ -135,7 +137,7 @@ const Login = () => {
               </p>
             )}
           </div>
-          <button className="bg-black text-white font-light px-8 py-2 mt-4">
+          <button className="bg-black text-white font-light px-8 py-2 mt-4 rounded-md hover:bg-gray-800 transition">
             {currentState === "Login" ? "Login" : "Sign Up"}
           </button>
         </form>

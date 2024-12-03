@@ -2,7 +2,7 @@ const Welcome = ({ isOpen, onClose, iplTeam, userName }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 w-[50%]">
       <div className="bg-white p-8 rounded-lg shadow-xl max-w-lg w-full relative">
         <button
           onClick={onClose}
