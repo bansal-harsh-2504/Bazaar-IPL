@@ -119,7 +119,12 @@ const Navbar = () => {
             {loggedIn && (
               <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
                 <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-                    <p className="cursor-pointer hover:text-black" onClick={()=>setIsModalOpen2(true)}>Change Team</p>
+                  <p
+                    className="cursor-pointer hover:text-black"
+                    onClick={() => setIsModalOpen2(true)}
+                  >
+                    Change Team
+                  </p>
                   <Link to={"/orders"}>
                     <p className="cursor-pointer hover:text-black">Orders</p>
                   </Link>
@@ -148,32 +153,63 @@ const Navbar = () => {
 
         {/* Sidebar for small screens */}
         <div
-          className={`absolute top-0 bottom-0 right-0 overflow-hidden bg-white transition-all ${
-            visible ? "w-full" : "w-0"
-          }`}
+          className={`fixed top-0 left-0 bottom-0 bg-white z-50 transition-transform duration-300 transform ${
+            visible ? "translate-x-0" : "translate-x-full"
+          } w-full h-full`}
         >
-          <div className="flex flex-col text-gray-600">
+          <div className="flex flex-col text-gray-600 h-full">
+            {/* Close button */}
             <div
               onClick={() => setVisible(false)}
               className="flex items-center gap-4 p-3 cursor-pointer"
             >
-              <img src={assets.dropdown_icon} className="h-4 rotate-180" />
+              <img
+                src={assets.dropdown_icon}
+                className="h-4 rotate-180"
+                alt="Back"
+              />
               <p>Back</p>
             </div>
+
+            {/* Navigation Links */}
             <NavLink
               to="/"
-              className="pl-6 py-2 border"
+              className="pl-6 py-2 border-b"
               onClick={() => setVisible(false)}
             >
               <p>HOME</p>
             </NavLink>
             <NavLink
               to="/collection"
-              className="pl-6 py-2 border"
+              className="pl-6 py-2 border-b"
               onClick={() => setVisible(false)}
             >
               <p>COLLECTION</p>
             </NavLink>
+
+            {/* Additional Links */}
+            <NavLink
+              to="/orders"
+              className="pl-6 py-2 border-b"
+              onClick={() => setVisible(false)}
+            >
+              <p>ORDERS</p>
+            </NavLink>
+            <NavLink
+              to="/cart"
+              className="pl-6 py-2 border-b"
+              onClick={() => setVisible(false)}
+            >
+              <p>CART</p>
+            </NavLink>
+            {loggedIn && (
+              <p
+                onClick={handleLogout}
+                className="pl-6 py-2 cursor-pointer hover:text-black border-b"
+              >
+                Logout
+              </p>
+            )}
           </div>
         </div>
       </div>
