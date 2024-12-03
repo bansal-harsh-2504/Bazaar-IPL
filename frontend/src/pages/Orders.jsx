@@ -16,7 +16,7 @@ const Orders = () => {
       if (!token) {
         return null;
       }
-      const res = await axios.get(backendUrl + "/api/order/userOrders", {
+      const res = await axios.get(backendUrl + "api/order/userOrders", {
         headers: { token },
       });
 

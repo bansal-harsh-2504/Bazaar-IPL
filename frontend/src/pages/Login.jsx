@@ -26,7 +26,7 @@ const Login = () => {
     try {
       const res = await axios.post(
         backendUrl +
-          `/api/user/${currentState === "Sign Up" ? "register" : "login"}`,
+          `api/user/${currentState === "Sign Up" ? "register" : "login"}`,
         { name, email, password }
       );
 

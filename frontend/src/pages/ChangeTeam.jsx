@@ -13,7 +13,7 @@ const ChangeTeam = ({ isOpen, onClose }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${backendUrl}/api/team/change`,
+        `${backendUrl}api/team/change`,
         {
           team: newTeam,
         },
