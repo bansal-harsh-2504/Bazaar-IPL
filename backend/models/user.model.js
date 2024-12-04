@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
     cartData: { type: Object, default: {} },
     iplTeam: { type: String, default: "RCB" },
   },
-  { minimize: false }
+  { minimize: false, timestamps: true }
 );
 
 const User = mongoose.models.user || mongoose.model("user", userSchema);
